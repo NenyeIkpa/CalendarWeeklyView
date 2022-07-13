@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), OnItemListener{
         setWeekView()
     }
 
-    fun nextWeekAction(view: View?) {
+    fun nextWeekAction(view: View) {
        selectedDate = selectedDate.plusWeeks(1)
         setWeekView()
     }
@@ -46,6 +46,4 @@ class MainActivity : AppCompatActivity(), OnItemListener{
         setWeekView()
 
     }
-
-
 }

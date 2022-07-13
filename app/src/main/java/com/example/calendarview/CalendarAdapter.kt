@@ -25,7 +25,9 @@ class CalendarAdapter(private val days: ArrayList<LocalDate?>, private val onIte
     override fun onBindViewHolder(holder: CalenderViewHolder, position: Int) {
         val currentDate = days[position]
         holder.dayOfMonth.text = currentDate?.dayOfMonth.toString()
-        if (currentDate == selectedDate) holder.parentView.setBackgroundColor(Color.LTGRAY)
+        if (currentDate == selectedDate) {
+            holder.parentView.setBackgroundResource(R.color.green)
+        }
     }
 
     override fun getItemCount(): Int {
