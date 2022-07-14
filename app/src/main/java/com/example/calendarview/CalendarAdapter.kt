@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDate
 
-class CalendarAdapter(private val days: ArrayList<LocalDate?>, private val onItemListener: OnItemListener)
+class CalendarAdapter(private val days: ArrayList<LocalDate>, private val onItemListener: OnItemListener)
     : RecyclerView.Adapter<CalenderViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalenderViewHolder {
@@ -19,15 +19,16 @@ class CalendarAdapter(private val days: ArrayList<LocalDate?>, private val onIte
         }else {
             layoutParams.height = parent.height
         }
-        return CalenderViewHolder(view)
+        return CalenderViewHolder(view, onItemListener, days)
     }
 
     override fun onBindViewHolder(holder: CalenderViewHolder, position: Int) {
         val currentDate = days[position]
-        holder.dayOfMonth.text = currentDate?.dayOfMonth.toString()
-        if (currentDate == selectedDate) {
-            holder.parentView.setBackgroundResource(R.color.green)
+            holder.dayOfMonth.text = currentDate.dayOfMonth.toString()
+            if (currentDate == selectedDate) {
+                holder.parentView.setBackgroundResource(R.drawable.current_day_background)
         }
+
     }
 
     override fun getItemCount(): Int {

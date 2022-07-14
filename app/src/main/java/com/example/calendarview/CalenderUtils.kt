@@ -40,8 +40,8 @@ fun daysInMonthArray(date: LocalDate?): ArrayList<LocalDate?> {
     return daysInMonthArray
 }
 
-fun daysInWeekArray(selectedDate: LocalDate): ArrayList<LocalDate?> {
-    val days = ArrayList<LocalDate?>()
+fun daysInWeekArray(selectedDate: LocalDate): ArrayList<LocalDate> {
+    val days = ArrayList<LocalDate>()
     var current = sundayForDate(selectedDate)
     val endDate = current!!.plusWeeks(1)
     while (current!!.isBefore(endDate)) {
